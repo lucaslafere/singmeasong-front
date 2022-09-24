@@ -2,6 +2,7 @@ import api from "./api";
 
 export async function list() {
   const response = await api.get("/recommendations");
+  console.log(process.env.REACT_APP_API_BASE_URL)
   return response.data;
 }
 
