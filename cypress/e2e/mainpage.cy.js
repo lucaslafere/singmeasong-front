@@ -53,24 +53,19 @@ describe("testa upvote e downvote", () => {
   it("Testa se upvote funciona", () => {
     cy.createVideo(1);
     cy.homepage();
-    cy.get('[data-cy="upvote"]').click();
+    cy.upvote(1)
     cy.contains(1)
   });
   it("Testa se downvote funciona", () => {
     cy.createVideo(1);
     cy.homepage();
-    cy.get('[data-cy="downvote"]').click();
+    cy.downvote(1)
     cy.contains(-1)
   })
   it("Testa se video é removido quando tem -6 downvotes", () => {
     cy.createVideo(1);
     cy.homepage();
-    cy.get('[data-cy="downvote"]').click();
-    cy.get('[data-cy="downvote"]').click();
-    cy.get('[data-cy="downvote"]').click();
-    cy.get('[data-cy="downvote"]').click();
-    cy.get('[data-cy="downvote"]').click();
-    cy.get('[data-cy="downvote"]').click();
+    cy.downvote(6)
     cy.contains("No recommendations yet")
   })
 });

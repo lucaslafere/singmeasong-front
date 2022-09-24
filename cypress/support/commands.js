@@ -24,5 +24,15 @@ Cypress.Commands.add("resetDatabase", () => {
   cy.request("POST", "http://localhost:5000/e2e/reset");
 });
 Cypress.Commands.add("homepage", () => {
-  cy.visit("http://localhost:3000")
-})
+  cy.visit("http://localhost:3000");
+});
+Cypress.Commands.add("upvote", (amount) => {
+  for (let i = 0; i < Number(amount); i++) {
+    cy.get('[data-cy="upvote"]').click();
+  }
+});
+Cypress.Commands.add("downvote", (amount) => {
+  for (let i = 0; i < Number(amount); i++) {
+    cy.get('[data-cy="downvote"]').click();
+  }
+});
