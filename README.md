@@ -16,7 +16,7 @@ Run the following command to install the dependencies.
 npm install
 ```
 
-Then, after setting up your config in .env as in .env.example, go to your backend folder (found at: https://github.com/lucaslafere/singmeasong-api) and run:
+Then, after setting up your config in .env as in .env.example, go to your backend folder (found at: https://github.com/lucaslafere/singmeasong-api) and after setting all the configs correctly, as stated in the repository README, run:
 
 ```
 npm run dev
@@ -35,3 +35,5 @@ npx cypress open
 ```
 
 Then, in the window that was opened, select "E2E Testing", pick the browser you like the most, and select the tests already there.
+
+PS: The tests use http://localhost:5000 as the default API address for testing. If you do not run the server API on this PORT, you MUST change it in cypress -> support -> commands, as the tests aren't currently supporting .env settings.
